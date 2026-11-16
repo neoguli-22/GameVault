@@ -1,0 +1,336 @@
+// initialData.js - 처음 실행할 때 사용하는 기본 데이터 (LocalStorage 가 비어 있을 때)
+
+const BASE_TIME = new Date('2026-11-01T09:00:00').getTime();
+
+// Steam 공식 대표 이미지(460x215) 주소. 불러오기에 실패하면 장르 색상 커버로 자동 대체된다.
+const steamHeader = (appId) => `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`;
+
+export const INITIAL_GAMES = [
+    {
+        id: 1, title: 'Elden Ring', genre: 'RPG', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 64800, discountRate: 40, developer: 'FromSoftware', releaseDate: '2022-02-25',
+        description: '광활한 오픈 월드 "틈새의 땅"을 탐험하는 액션 RPG. 자유로운 탐험과 높은 난이도의 보스전이 특징이며, 다양한 무기와 마법으로 자신만의 전투 스타일을 만들 수 있다.',
+        imageUrl: steamHeader(1245620), createdAt: BASE_TIME,
+    },
+    {
+        id: 2, title: "Baldur's Gate 3", genre: 'RPG', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 66000, discountRate: 20, developer: 'Larian Studios', releaseDate: '2023-08-03',
+        description: '던전 앤 드래곤 규칙을 기반으로 한 턴제 RPG. 대화와 선택에 따라 이야기가 크게 달라지며 최대 4인 협동 플레이를 지원한다.',
+        imageUrl: steamHeader(1086940), createdAt: BASE_TIME + 1000,
+    },
+    {
+        id: 3, title: 'Hades', genre: '액션', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 26000, discountRate: 50, developer: 'Supergiant Games', releaseDate: '2020-09-17',
+        description: '지하 세계에서 탈출하려는 왕자 자그레우스의 이야기를 그린 로그라이크 액션 게임. 매 도전마다 달라지는 능력 조합과 빠른 전투가 매력이다.',
+        imageUrl: steamHeader(1145360), createdAt: BASE_TIME + 2000,
+    },
+    {
+        id: 4, title: 'Stardew Valley', genre: '시뮬레이션', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 16000, discountRate: 0, developer: 'ConcernedApe', releaseDate: '2016-02-26',
+        description: '할아버지에게 물려받은 농장을 가꾸며 마을 주민들과 교류하는 힐링 농장 시뮬레이션. 농사, 낚시, 채광, 요리 등 다양한 활동을 즐길 수 있다.',
+        imageUrl: steamHeader(413150), createdAt: BASE_TIME + 3000,
+    },
+    {
+        id: 5, title: 'Hollow Knight', genre: '인디', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 16500, discountRate: 50, developer: 'Team Cherry', releaseDate: '2017-02-24',
+        description: '몰락한 곤충 왕국 할로우네스트를 탐험하는 2D 메트로배니아 액션 게임. 손으로 그린 듯한 아트와 정교한 맵 구조가 돋보인다.',
+        imageUrl: steamHeader(367520), createdAt: BASE_TIME + 4000,
+    },
+    {
+        id: 6, title: "Sid Meier's Civilization VI", genre: '전략', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 65000, discountRate: 75, developer: 'Firaxis Games', releaseDate: '2016-10-21',
+        description: '하나의 문명을 선택해 고대부터 현대까지 발전시키는 턴제 전략 게임. 과학, 문화, 종교, 외교 등 여러 방식으로 승리할 수 있다.',
+        imageUrl: steamHeader(289070), createdAt: BASE_TIME + 5000,
+    },
+    {
+        id: 7, title: 'Forza Horizon 5', genre: '레이싱', platforms: ['PC', 'Xbox', 'PlayStation'],
+        price: 69000, discountRate: 30, developer: 'Playground Games', releaseDate: '2021-11-09',
+        description: '멕시코를 배경으로 한 오픈 월드 레이싱 게임. 수백 대의 실제 자동차와 계절에 따라 바뀌는 환경 속에서 자유롭게 달릴 수 있다.',
+        imageUrl: steamHeader(1551360), createdAt: BASE_TIME + 6000,
+    },
+    {
+        id: 8, title: 'EA SPORTS FC 25', genre: '스포츠', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 79800, discountRate: 60, developer: 'EA Sports', releaseDate: '2024-09-27',
+        description: '실제 리그와 선수 라이선스를 바탕으로 한 축구 게임. 커리어 모드, 얼티밋 팀, 친구와 함께하는 러시 모드를 제공한다.',
+        imageUrl: steamHeader(2669320), createdAt: BASE_TIME + 7000,
+    },
+    {
+        id: 9, title: 'Portal 2', genre: '퍼즐', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 10500, discountRate: 80, developer: 'Valve', releaseDate: '2011-04-19',
+        description: '포털 건으로 공간을 연결해 테스트 챔버를 통과하는 1인칭 퍼즐 게임. 재치 있는 스토리와 2인 협동 모드가 유명하다.',
+        imageUrl: steamHeader(620), createdAt: BASE_TIME + 8000,
+    },
+    {
+        id: 10, title: 'It Takes Two', genre: '어드벤처', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 44000, discountRate: 0, developer: 'Hazelight Studios', releaseDate: '2021-03-26',
+        description: '인형이 되어버린 부부가 함께 모험을 떠나는 2인 협동 전용 어드벤처. 챕터마다 새로운 게임 방식이 등장한다.',
+        imageUrl: steamHeader(1426210), createdAt: BASE_TIME + 9000,
+    },
+    {
+        id: 11, title: 'Celeste', genre: '인디', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 21500, discountRate: 0, developer: 'Maddy Makes Games', releaseDate: '2018-01-25',
+        description: '셀레스트 산 정상을 향해 오르는 정밀 플랫포머. 높은 난이도 속에서도 따뜻한 이야기와 아름다운 음악을 경험할 수 있다.',
+        imageUrl: steamHeader(504230), createdAt: BASE_TIME + 10000,
+    },
+    {
+        id: 12, title: 'Cities: Skylines', genre: '시뮬레이션', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 30000, discountRate: 85, developer: 'Colossal Order', releaseDate: '2015-03-10',
+        description: '도로, 전기, 수도, 교통을 직접 설계하며 나만의 도시를 건설하는 도시 경영 시뮬레이션 게임.',
+        imageUrl: steamHeader(255710), createdAt: BASE_TIME + 11000,
+    },
+    // ===== 추가 게임 (2차) =====
+    {
+        id: 13, title: 'Sekiro: Shadows Die Twice', genre: '액션', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 64800, discountRate: 50, developer: 'FromSoftware', releaseDate: '2019-03-22',
+        description: '전국시대 일본을 배경으로 한 닌자 액션 게임. 칼끼리 부딪히는 \'체간\' 시스템으로 적의 자세를 무너뜨리는 긴장감 있는 검술 전투가 핵심이다.',
+        imageUrl: steamHeader(814380), createdAt: BASE_TIME + 12000,
+    },
+    {
+        id: 14, title: 'The Witcher 3: Wild Hunt', genre: 'RPG', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 43000, discountRate: 80, developer: 'CD PROJEKT RED', releaseDate: '2015-05-19',
+        description: '괴물 사냥꾼 게롤트가 양딸 시리를 찾아 떠나는 오픈 월드 RPG. 선택에 따라 달라지는 퀘스트와 방대한 이야기로 유명하다.',
+        imageUrl: steamHeader(292030), createdAt: BASE_TIME + 13000,
+    },
+    {
+        id: 15, title: 'Cyberpunk 2077', genre: 'RPG', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 66000, discountRate: 50, developer: 'CD PROJEKT RED', releaseDate: '2020-12-10',
+        description: '거대 도시 나이트 시티에서 용병 V가 되어 살아가는 1인칭 오픈 월드 RPG. 사이버웨어 개조와 다양한 플레이 방식을 지원한다.',
+        imageUrl: steamHeader(1091500), createdAt: BASE_TIME + 14000,
+    },
+    {
+        id: 16, title: 'Red Dead Redemption 2', genre: '액션', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 66000, discountRate: 67, developer: 'Rockstar Games', releaseDate: '2018-10-26',
+        description: '1899년 미국 서부를 배경으로 무법자 아서 모건의 이야기를 그린 오픈 월드 액션 어드벤처.',
+        imageUrl: steamHeader(1174180), createdAt: BASE_TIME + 15000,
+    },
+    {
+        id: 17, title: 'Monster Hunter: World', genre: '액션', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 33000, discountRate: 60, developer: 'CAPCOM', releaseDate: '2018-01-26',
+        description: '거대한 몬스터를 추적해 사냥하고, 얻은 소재로 장비를 만드는 헌팅 액션. 최대 4인 협력 사냥이 가능하다.',
+        imageUrl: steamHeader(582010), createdAt: BASE_TIME + 16000,
+    },
+    {
+        id: 18, title: 'Resident Evil 4', genre: '액션', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 54800, discountRate: 40, developer: 'CAPCOM', releaseDate: '2023-03-24',
+        description: '2005년 원작을 새롭게 만든 서바이벌 호러 액션. 요원 레온이 납치된 대통령의 딸을 구하러 유럽의 마을로 향한다.',
+        imageUrl: steamHeader(2050650), createdAt: BASE_TIME + 17000,
+    },
+    {
+        id: 19, title: 'Terraria', genre: '인디', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 10500, discountRate: 50, developer: 'Re-Logic', releaseDate: '2011-05-16',
+        description: '땅을 파고, 싸우고, 건축하는 2D 샌드박스 어드벤처. 수많은 아이템과 보스, 멀티플레이를 지원한다.',
+        imageUrl: steamHeader(105600), createdAt: BASE_TIME + 18000,
+    },
+    {
+        id: 20, title: 'Dead Cells', genre: '액션', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 26000, discountRate: 40, developer: 'Motion Twin', releaseDate: '2018-08-07',
+        description: '죽을 때마다 구조가 바뀌는 성을 탐험하는 로그라이트 액션. 빠르고 손맛 좋은 전투와 다양한 무기 조합이 특징이다.',
+        imageUrl: steamHeader(588650), createdAt: BASE_TIME + 19000,
+    },
+    {
+        id: 21, title: 'Slay the Spire', genre: '전략', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 26000, discountRate: 70, developer: 'Mega Crit', releaseDate: '2019-01-23',
+        description: '카드 덱을 만들며 탑을 오르는 로그라이크 덱빌딩 게임. 매번 다른 카드와 유물 조합으로 전략을 세워야 한다.',
+        imageUrl: steamHeader(646570), createdAt: BASE_TIME + 20000,
+    },
+    {
+        id: 22, title: 'Disco Elysium - The Final Cut', genre: 'RPG', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 43000, discountRate: 75, developer: 'ZA/UM', releaseDate: '2019-10-15',
+        description: '기억을 잃은 형사가 되어 사건을 수사하는 대화 중심 RPG. 전투 대신 대화와 사고 능력으로 이야기를 풀어 간다.',
+        imageUrl: steamHeader(632470), createdAt: BASE_TIME + 21000,
+    },
+    {
+        id: 23, title: 'Undertale', genre: '인디', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 10500, discountRate: 0, developer: 'Toby Fox', releaseDate: '2015-09-15',
+        description: '지하 세계에 떨어진 아이가 몬스터들과 만나는 RPG. 적을 쓰러뜨리지 않고 대화로 해결할 수도 있는 독특한 전투가 특징이다.',
+        imageUrl: steamHeader(391540), createdAt: BASE_TIME + 22000,
+    },
+    {
+        id: 24, title: 'Cuphead', genre: '액션', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 21500, discountRate: 20, developer: 'Studio MDHR', releaseDate: '2017-09-29',
+        description: '1930년대 만화 스타일로 그린 런앤건 액션 게임. 손으로 그린 애니메이션과 높은 난이도의 보스전이 유명하다.',
+        imageUrl: steamHeader(268910), createdAt: BASE_TIME + 23000,
+    },
+    {
+        id: 25, title: 'Ori and the Will of the Wisps', genre: '어드벤처', platforms: ['PC', 'Xbox', 'Switch'],
+        price: 32000, discountRate: 75, developer: 'Moon Studios', releaseDate: '2020-03-11',
+        description: '작은 정령 오리의 여정을 그린 2D 액션 어드벤처. 아름다운 그래픽과 음악, 부드러운 조작감이 돋보인다.',
+        imageUrl: steamHeader(1057090), createdAt: BASE_TIME + 24000,
+    },
+    {
+        id: 26, title: 'Euro Truck Simulator 2', genre: '시뮬레이션', platforms: ['PC'],
+        price: 21500, discountRate: 75, developer: 'SCS Software', releaseDate: '2012-10-19',
+        description: '유럽 각국을 트럭으로 달리며 화물을 배송하는 운송 시뮬레이션. 회사를 키우고 트럭을 개조할 수 있다.',
+        imageUrl: steamHeader(227300), createdAt: BASE_TIME + 25000,
+    },
+    {
+        id: 27, title: 'Factorio', genre: '전략', platforms: ['PC', 'Switch'],
+        price: 38000, discountRate: 0, developer: 'Wube Software', releaseDate: '2020-08-14',
+        description: '자원을 채굴하고 생산 라인을 자동화해 거대한 공장을 짓는 건설·관리 전략 게임.',
+        imageUrl: steamHeader(427520), createdAt: BASE_TIME + 26000,
+    },
+    {
+        id: 28, title: 'RimWorld', genre: '전략', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 37000, discountRate: 0, developer: 'Ludeon Studios', releaseDate: '2018-10-17',
+        description: '외계 행성에 불시착한 정착민들의 생존을 관리하는 식민지 시뮬레이션. AI 스토리텔러가 매번 다른 사건을 만든다.',
+        imageUrl: steamHeader(294100), createdAt: BASE_TIME + 27000,
+    },
+    {
+        id: 29, title: 'Age of Empires II: Definitive Edition', genre: '전략', platforms: ['PC', 'Xbox'],
+        price: 21500, discountRate: 50, developer: 'Forgotten Empires', releaseDate: '2019-11-14',
+        description: '중세 문명을 이끌어 전쟁과 경제를 운영하는 실시간 전략 게임의 리마스터판.',
+        imageUrl: steamHeader(813780), createdAt: BASE_TIME + 28000,
+    },
+    {
+        id: 30, title: 'Total War: WARHAMMER III', genre: '전략', platforms: ['PC'],
+        price: 66000, discountRate: 50, developer: 'Creative Assembly', releaseDate: '2022-02-17',
+        description: '턴제 제국 운영과 대규모 실시간 전투를 결합한 판타지 전략 게임.',
+        imageUrl: steamHeader(1142710), createdAt: BASE_TIME + 29000,
+    },
+    {
+        id: 31, title: 'F1 24', genre: '레이싱', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 69800, discountRate: 70, developer: 'Codemasters', releaseDate: '2024-05-31',
+        description: 'FIA 포뮬러 원 공식 라이선스 레이싱 게임. 실제 팀과 드라이버, 서킷으로 시즌을 치르는 커리어 모드를 제공한다.',
+        imageUrl: steamHeader(2488620), createdAt: BASE_TIME + 30000,
+    },
+    {
+        id: 32, title: 'Need for Speed Unbound', genre: '레이싱', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 79800, discountRate: 85, developer: 'Criterion Games', releaseDate: '2022-12-02',
+        description: '그래피티 스타일 효과가 특징인 스트리트 레이싱 게임. 레이스로 돈을 벌어 차를 개조하고 대회에 도전한다.',
+        imageUrl: steamHeader(1846380), createdAt: BASE_TIME + 31000,
+    },
+    {
+        id: 33, title: 'Assetto Corsa Competizione', genre: '레이싱', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 43000, discountRate: 60, developer: 'Kunos Simulazioni', releaseDate: '2019-05-29',
+        description: 'GT 월드 챌린지 공식 레이싱 시뮬레이터. 사실적인 차량 물리와 날씨 변화를 구현했다.',
+        imageUrl: steamHeader(805550), createdAt: BASE_TIME + 32000,
+    },
+    {
+        id: 34, title: 'Football Manager 2024', genre: '스포츠', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 59000, discountRate: 75, developer: 'Sports Interactive', releaseDate: '2023-11-06',
+        description: '축구 클럽의 감독이 되어 전술, 이적, 선수 육성을 책임지는 축구 경영 시뮬레이션.',
+        imageUrl: steamHeader(2252570), createdAt: BASE_TIME + 33000,
+    },
+    {
+        id: 35, title: 'Tony Hawk\'s Pro Skater 1 + 2', genre: '스포츠', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 43000, discountRate: 50, developer: 'Vicarious Visions', releaseDate: '2020-09-04',
+        description: '고전 스케이트보드 게임 1, 2편을 리메이크한 작품. 콤보 트릭으로 점수를 겨룬다.',
+        imageUrl: steamHeader(2395210), createdAt: BASE_TIME + 34000,
+    },
+    {
+        id: 36, title: 'The Talos Principle', genre: '퍼즐', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 43000, discountRate: 85, developer: 'Croteam', releaseDate: '2014-12-11',
+        description: '신비한 고대 유적에서 레이저와 장치를 이용해 퍼즐을 푸는 1인칭 철학 퍼즐 게임.',
+        imageUrl: steamHeader(257510), createdAt: BASE_TIME + 35000,
+    },
+    {
+        id: 37, title: 'Baba Is You', genre: '퍼즐', platforms: ['PC', 'Switch'],
+        price: 16000, discountRate: 20, developer: 'Hempuli', releaseDate: '2019-03-13',
+        description: '\'BABA IS YOU\', \'WALL IS STOP\' 같은 문장 블록을 밀어서 게임 규칙 자체를 바꾸는 퍼즐 게임.',
+        imageUrl: steamHeader(736260), createdAt: BASE_TIME + 36000,
+    },
+    {
+        id: 38, title: 'Tetris Effect: Connected', genre: '퍼즐', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 43000, discountRate: 50, developer: 'Monstars Inc. / Resonair', releaseDate: '2020-11-10',
+        description: '음악과 빛 효과가 블록에 반응하는 테트리스. 최대 3인 협동 모드를 지원한다.',
+        imageUrl: steamHeader(1003590), createdAt: BASE_TIME + 37000,
+    },
+    {
+        id: 39, title: 'Unpacking', genre: '퍼즐', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 21500, discountRate: 30, developer: 'Witch Beam', releaseDate: '2021-11-02',
+        description: '이삿짐 상자를 풀어 물건을 정리하면서 한 사람의 인생 이야기를 알아가는 힐링 퍼즐 게임.',
+        imageUrl: steamHeader(1135690), createdAt: BASE_TIME + 38000,
+    },
+    {
+        id: 40, title: 'Outer Wilds', genre: '어드벤처', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 26000, discountRate: 40, developer: 'Mobius Digital', releaseDate: '2019-05-28',
+        description: '22분마다 반복되는 태양계에서 우주의 비밀을 밝혀내는 탐험 어드벤처.',
+        imageUrl: steamHeader(753640), createdAt: BASE_TIME + 39000,
+    },
+    {
+        id: 41, title: 'Firewatch', genre: '어드벤처', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 21500, discountRate: 75, developer: 'Campo Santo', releaseDate: '2016-02-09',
+        description: '와이오밍 숲의 화재 감시원이 되어 무전기로 대화하며 미스터리를 풀어가는 1인칭 어드벤처.',
+        imageUrl: steamHeader(383870), createdAt: BASE_TIME + 40000,
+    },
+    {
+        id: 42, title: 'Hogwarts Legacy', genre: 'RPG', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 69800, discountRate: 75, developer: 'Avalanche Software', releaseDate: '2023-02-10',
+        description: '1800년대 호그와트 학생이 되어 마법을 배우고 성과 주변 지역을 탐험하는 오픈 월드 액션 RPG.',
+        imageUrl: steamHeader(990080), createdAt: BASE_TIME + 41000,
+    },
+    {
+        id: 43, title: 'Persona 5 Royal', genre: 'RPG', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 72800, discountRate: 50, developer: 'ATLUS', releaseDate: '2022-10-21',
+        description: '낮에는 고등학생, 밤에는 괴도단으로 활동하는 턴제 RPG. 학교생활과 던전 탐험을 함께 즐긴다.',
+        imageUrl: steamHeader(1687950), createdAt: BASE_TIME + 42000,
+    },
+    {
+        id: 44, title: 'Valheim', genre: '어드벤처', platforms: ['PC', 'Xbox'],
+        price: 21500, discountRate: 0, developer: 'Iron Gate', releaseDate: '2021-02-02',
+        description: '바이킹 사후 세계를 탐험하며 집을 짓고 보스를 물리치는 생존 어드벤처. 최대 10인 협동을 지원한다.',
+        imageUrl: steamHeader(892970), createdAt: BASE_TIME + 43000,
+    },
+    {
+        id: 45, title: 'Two Point Hospital', genre: '시뮬레이션', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 38000, discountRate: 80, developer: 'Two Point Studios', releaseDate: '2018-08-30',
+        description: '엉뚱한 질병을 치료하는 병원을 짓고 운영하는 유머러스한 경영 시뮬레이션.',
+        imageUrl: steamHeader(535930), createdAt: BASE_TIME + 44000,
+    },
+    {
+        id: 46, title: 'Farming Simulator 22', genre: '시뮬레이션', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 36000, discountRate: 60, developer: 'GIANTS Software', releaseDate: '2021-11-22',
+        description: '실제 농기계 브랜드로 농작물을 재배하고 가축을 키우는 농장 경영 시뮬레이션.',
+        imageUrl: steamHeader(1248130), createdAt: BASE_TIME + 45000,
+    },
+    {
+        id: 47, title: 'PowerWash Simulator', genre: '시뮬레이션', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 26000, discountRate: 50, developer: 'FuturLab', releaseDate: '2022-07-14',
+        description: '고압 세척기로 더러운 집, 차, 놀이터를 깨끗하게 청소하는 힐링 시뮬레이션.',
+        imageUrl: steamHeader(1290000), createdAt: BASE_TIME + 46000,
+    },
+    {
+        id: 48, title: 'Stray', genre: '어드벤처', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 32000, discountRate: 40, developer: 'BlueTwelve Studio', releaseDate: '2022-07-19',
+        description: '고양이가 되어 로봇들이 사는 사이버 도시를 탐험하는 3인칭 어드벤처.',
+        imageUrl: steamHeader(1332010), createdAt: BASE_TIME + 47000,
+    },
+    {
+        id: 49, title: 'Lies of P', genre: '액션', platforms: ['PC', 'PlayStation', 'Xbox'],
+        price: 64800, discountRate: 40, developer: 'Round8 Studio', releaseDate: '2023-09-19',
+        description: '피노키오 이야기를 어둡게 재해석한 소울라이크 액션 RPG. 국내 개발사 네오위즈·라운드8 스튜디오 작품이다.',
+        imageUrl: steamHeader(1627720), createdAt: BASE_TIME + 48000,
+    },
+    {
+        id: 50, title: 'Dave the Diver', genre: '인디', platforms: ['PC', 'PlayStation', 'Switch'],
+        price: 26000, discountRate: 20, developer: 'MINTROCKET', releaseDate: '2023-06-28',
+        description: '낮에는 바다에서 물고기를 잡고 밤에는 초밥집을 운영하는 해양 어드벤처. 국내 개발사 넥슨 민트로켓 작품이다.',
+        imageUrl: steamHeader(1868140), createdAt: BASE_TIME + 49000,
+    },
+    {
+        id: 51, title: 'A Short Hike', genre: '인디', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 8500, discountRate: 0, developer: 'adamgryu', releaseDate: '2019-07-30',
+        description: '작은 섬의 정상까지 산책하듯 오르는 짧고 따뜻한 탐험 게임. 섬 곳곳의 주민들과 대화하며 비밀을 찾는다.',
+        imageUrl: steamHeader(1055540), createdAt: BASE_TIME + 50000,
+    },
+    {
+        id: 52, title: 'Overcooked! 2', genre: '시뮬레이션', platforms: ['PC', 'PlayStation', 'Xbox', 'Switch'],
+        price: 26000, discountRate: 75, developer: 'Ghost Town Games', releaseDate: '2018-08-07',
+        description: '엉망진창 주방에서 친구들과 협력해 주문을 처리하는 요리 협동 게임.',
+        imageUrl: steamHeader(728880), createdAt: BASE_TIME + 51000,
+    },
+];
+
+export const INITIAL_REVIEWS = [
+    { id: 1, gameId: 1, author: '탐험가', rating: 5, content: '보스는 어렵지만 깼을 때의 성취감이 최고입니다.', createdAt: BASE_TIME + 20000 },
+    { id: 2, gameId: 1, author: '초보용사', rating: 4, content: '맵이 정말 넓어요. 길 찾는 재미가 있습니다.', createdAt: BASE_TIME + 30000 },
+    { id: 3, gameId: 3, author: '로그라이크러버', rating: 5, content: '한 판만 더 하다가 밤새는 게임. 성우 연기도 좋아요.', createdAt: BASE_TIME + 40000 },
+    { id: 4, gameId: 4, author: '농부킴', rating: 5, content: '퇴근 후 힐링용으로 최고! 친구와 협동도 됩니다.', createdAt: BASE_TIME + 50000 },
+    { id: 5, gameId: 9, author: '퍼즐왕', rating: 4, content: '오래된 게임이지만 지금 해도 퍼즐 설계가 훌륭합니다.', createdAt: BASE_TIME + 60000 },
+    { id: 6, gameId: 14, author: '게롤트팬', rating: 5, content: '서브 퀘스트 하나하나가 단편 소설 같아요. 할인할 때 꼭 사세요.', createdAt: BASE_TIME + 70000 },
+    { id: 7, gameId: 50, author: '심해탐험', rating: 5, content: '낚시랑 초밥집 운영이 이렇게 잘 섞일 줄 몰랐어요. 국산 게임 최고!', createdAt: BASE_TIME + 80000 },
+    { id: 8, gameId: 21, author: '덱빌더', rating: 4, content: '한 판이 짧아서 쉬는 시간에 하기 좋습니다. 중독성 주의.', createdAt: BASE_TIME + 90000 },
+    { id: 9, gameId: 52, author: '요리왕비룡', rating: 4, content: '친구랑 하면 싸우다가 웃다가... 파티 게임으로 강력 추천.', createdAt: BASE_TIME + 100000 },
+    { id: 10, gameId: 49, author: '소울러', rating: 4, content: '전투 손맛이 좋고 분위기가 독특합니다. 난이도는 꽤 높아요.', createdAt: BASE_TIME + 110000 },
+];
+
